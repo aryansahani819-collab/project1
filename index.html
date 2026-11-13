@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kochi Metro inspired journey planner and urban transport website.">
+    <title>Kochi Metro | Connecting Lives</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="topbar">
+        <span>KOCHI METRO RAIL LIMITED</span>
+        <div>
+            <a href="#journey">Plan Journey</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <header class="header">
+        <a href="#home" class="brand">
+            <div class="logo">K<span>M</span></div>
+            <div>
+                <strong>KOCHI METRO</strong>
+                <small>RAIL LIMITED</small>
+            </div>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="nav" id="navMenu">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#stations">Stations</a>
+            <a href="#journey">Plan Journey</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#journey" class="header-btn">Book Journey ↗</a>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="eyebrow">SMARTER URBAN MOBILITY</span>
+                <h1>Bridging Distances.<br>
+                    <span>Connecting Lives.</span>
+                </h1>
+                <p>
+                    Experience a smarter, greener and more convenient
+                    way to explore Kochi with metro and integrated transport.
+                </p>
+                <div class="hero-actions">
+                    <a href="#journey" class="btn btn-primary">Plan Your Journey →</a>
+                    <a href="#stations" class="btn btn-outline">Explore Stations</a>
+                </div>
+
+                <div class="hero-note">
+                    <span class="live-dot"></span>
+                    Your city. Your metro. Your journey.
+                </div>
+            </div>
+
+            <div class="hero-side-card">
+                <span class="card-icon">🚆</span>
+                <div>
+                    <strong>Move smarter</strong>
+                    <p>Discover your next destination.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-strip">
+            <a href="#journey">
+                <span>↗</span>
+                <div><strong>Journey Planner</strong><small>Find your route</small></div>
+            </a>
+            <a href="#stations">
+                <span>◎</span>
+                <div><strong>Metro Stations</strong><small>Explore the network</small></div>
+            </a>
+            <a href="#services">
+                <span>▤</span>
+                <div><strong>Metro Services</strong><small>Travel information</small></div>
+            </a>
+            <a href="#contact">
+                <span>ⓘ</span>
+                <div><strong>Passenger Help</strong><small>We're here to help</small></div>
+            </a>
+        </section>
+
+        <section class="section about" id="about">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85"
+                    alt="City skyline and urban transportation">
+                <div class="image-tag">CONNECTING KOCHI</div>
+            </div>
+
+            <div class="about-content">
+                <span class="eyebrow">ABOUT KOCHI METRO</span>
+                <h2>A better way to<br>move through the city.</h2>
+                <p>
+                    Modern public transport helps connect people with
+                    workplaces, education, shopping and the places they love.
+                    Explore Kochi with a journey experience designed around
+                    convenience, connectivity and sustainability.
+                </p>
+
+                <div class="feature-list">
+                    <div><span>✓</span> Convenient urban travel</div>
+                    <div><span>✓</span> Integrated transport connections</div>
+                    <div><span>✓</span> A greener mobility experience</div>
+                </div>
+
+                <a href="#services" class="text-link">Discover our services →</a>
+            </div>
+        </section>
+
+        <section class="section journey-section" id="journey">
+            <div class="section-heading center">
+                <span class="eyebrow">TRAVEL MADE SIMPLE</span>
+                <h2>Plan your journey</h2>
+                <p>Choose your stations to explore your metro route.</p>
+            </div>
+
+            <div class="journey-card">
+                <div class="journey-form">
+                    <div class="field">
+                        <label for="fromStation">FROM STATION</label>
+                        <select id="fromStation">
+                            <option value="">Select starting station</option>
+                        </select>
+                    </div>
+
+                    <button type="button" id="swapStations" class="swap-btn" aria-label="Swap stations">⇅</button>
+
+                    <div class="field">
+                        <label for="toStation">TO STATION</label>
+                        <select id="toStation">
+                            <option value="">Select destination station</option>
+                        </select>
+                    </div>
+
+                    <button type="button" id="planBtn" class="btn btn-primary">
+                        Find Journey →
+                    </button>
+                </div>
+
+                <div id="journeyResult" class="journey-result" aria-live="polite">
+                    <div class="result-placeholder">
+                        <span>🚇</span>
+                        <p>Your journey details will appear here.</p>
+                    </div>
+                </div>
+                <p class="disclaimer">
+                    Demonstration only: journey times and fares are estimates,
+                    not official live travel information.
+                </p>
+            </div>
+        </section>
+
+        <section class="section stations-section" id="stations">
+            <div class="section-heading">
+                <span class="eyebrow">EXPLORE THE NETWORK</span>
+                <h2>Find your station</h2>
+                <p>Search a station to learn more about your destination.</p>
+            </div>
+
+            <div class="station-search">
+                <span>⌕</span>
+                <input id="stationSearch" type="search" placeholder="Search stations, e.g. Aluva or Edapally"
+                    aria-label="Search metro stations">
+            </div>
+
+            <div id="stationGrid" class="station-grid"></div>
+            <p id="noStations" class="no-results" hidden>
+                No stations found. Try another name.
+            </p>
+        </section>
+
+        <section class="services-section" id="services">
+            <div class="section section-heading center">
+                <span class="eyebrow">MORE WAYS TO CONNECT</span>
+                <h2>Travel beyond the ordinary</h2>
+                <p>Explore services that support a connected city.</p>
+            </div>
+
+            <div class="section service-grid">
+                <article class="service-card">
+                    <div class="service-icon">🚆</div>
+                    <h3>Metro Rail</h3>
+                    <p>Plan an urban journey between metro stations.</p>
+                    <a href="#journey">Plan a journey →</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">⛴️</div>
+                    <h3>Water Metro</h3>
+                    <p>Discover water-based public transport connections.</p>
+                    <a href="https://watermetro.co.in/" target="_blank" rel="noopener noreferrer">Explore Water Metro
+                        →</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">♻️</div>
+                    <h3>Sustainable Kochi</h3>
+                    <p>Support cleaner and more sustainable urban mobility.</p>
+                    <a href="#about">Learn more →</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div>
+                <span class="eyebrow">YOUR CITY, CONNECTED</span>
+                <h2>Every journey starts somewhere.</h2>
+                <p>Make your next trip through Kochi a little simpler.</p>
+            </div>
+            <a href="#journey" class="btn btn-light">Plan Your Journey →</a>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <div class="brand">
+                    <div class="logo">K<span>M</span></div>
+                    <div>
+                        <strong>KOCHI METRO</strong>
+                        <small>EDUCATIONAL CLONE PROJECT</small>
+                    </div>
+                </div>
+                <p>A student-built demonstration of a modern metro website.</p>
+            </div>
+
+            <div>
+                <h4>Explore</h4>
+                <a href="#about">About Us</a>
+                <a href="#stations">Stations</a>
+                <a href="#journey">Plan Journey</a>
+            </div>
+
+            <div>
+                <h4>Official Website</h4>
+                <a href="https://corporate.kochimetro.org/" target="_blank" rel="noopener noreferrer">
+                    Kochi Metro Rail Limited ↗
+                </a>
+                <a href="https://kochimetro.org/" target="_blank" rel="noopener noreferrer">
+                    KMRL Website ↗
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> Student Project</span>
+            <span>Not affiliated with Kochi Metro Rail Limited.</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
